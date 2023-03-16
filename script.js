@@ -10,6 +10,6 @@ setInterval(async () => {
   const countyCode = CountyCodes[idx];
   const slots = await fetch(`https://candidat.permisdeconduire.gouv.fr/api/v1/candidat/creneaux?code-departement=${countyCode}`).then(data => data.json()).catch((e => console.error(e)));
   const now = new Date();
-  console.info(`County: ${countyCode}`, now.toUTCString(), slots);
+  console.info(`[${countyCode}] (${now.toUTCString()})`, slots);
   idx = idx + 1 % CountyCodes.length;
 }, FetchingIntervalMs);
