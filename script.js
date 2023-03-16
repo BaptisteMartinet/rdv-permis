@@ -9,7 +9,7 @@ setInterval(async () => {
   const slots = await fetch(`https://candidat.permisdeconduire.gouv.fr/api/v1/candidat/creneaux?code-departement=${CountyCode}`).then(data => data.json()).catch((e => console.error(e)));
   const now = new Date();
   console.info(now, slots);
-  localStorage.setItem(now.getDate().toString(), slots?.toString());
+  localStorage.setItem(now.getTime().toString(), slots?.toString());
 }, FetchingIntervalMs);
 
 console.info('Fetching slots...');
